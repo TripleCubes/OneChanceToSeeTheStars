@@ -19,6 +19,8 @@ config/icon="res://icon.svg"
 
 GF="*res://Scripts/Singletons/global_functions.gd"
 GV="*res://Scripts/Singletons/global_vars.gd"
+OptionTree="*res://Scripts/Tree/tree.gd"
+TreeSetup="*res://Scripts/Tree/tree_setup.gd"
 
 [display]
 

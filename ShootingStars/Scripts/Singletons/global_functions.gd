@@ -1,5 +1,13 @@
 extends Node
 
+func find_in_list(list: Array, find, callable: Callable) -> int:
+	for i in list.size():
+		var list_item = list[i]
+		if callable.call(list_item) == find:
+			return i
+	
+	return -1
+
 func wait(time: float, callable: Callable) -> void:
 	var timer: = get_tree().create_timer(time)
 	timer.timeout.connect(callable)

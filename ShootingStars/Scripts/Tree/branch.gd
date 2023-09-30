@@ -16,29 +16,35 @@ func _init(in_text: String, in_from_character_0: bool):
 	from_character_0 = in_from_character_0
 	OptionTree.branch_list.append(self)
 
+# Add dialogue for character 0, return the added branch
 func ab0(in_text: String) -> Branch:
 	var branch = Branch.new(in_text, true)
 	connected_to.append(branch)
 	return branch
 
+# Add dialogue for character 0, return self
 func asf0(in_text: String) -> Branch:
 	var branch = Branch.new(in_text, true)
 	connected_to.append(branch)
 	return self
 
+# Add dialogue for character 1, return the added branch
 func ab1(in_text: String) -> Branch:
 	var branch = Branch.new(in_text, false)
 	connected_to.append(branch)
 	return branch
 
+# Add dialogue for character 1, return self
 func asf1(in_text: String) -> Branch:
 	var branch = Branch.new(in_text, false)
 	connected_to.append(branch)
 	return self
 
+# Search for the branch in all branches and add it
 func a(in_text: String) -> void:
 	connected_to.append(OptionTree.gb(in_text))
 
+# Get branch by text, search from connected_to list
 func gb(in_text: String) -> Branch:
 	var result: = GF.find_in_list(connected_to, in_text, func(list_item): return list_item.text)
 	if result == -1:

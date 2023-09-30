@@ -1,0 +1,91 @@
+[gd_scene load_steps=15 format=3 uid="uid://d3vrc5bqadjsp"]
+
+[ext_resource type="Texture2D" uid="uid://c573bqb6sobxh" path="res://Assets/Sprites/character_0.png" id="1_h2kj3"]
+[ext_resource type="Texture2D" uid="uid://dqb8cl3bogo08" path="res://Assets/Sprites/chair.png" id="1_ms4r6"]
+[ext_resource type="Texture2D" uid="uid://bnk1xr1ove10i" path="res://Assets/Sprites/character_1.png" id="2_epc8h"]
+[ext_resource type="Script" path="res://Scripts/character.gd" id="3_xuy0s"]
+[ext_resource type="Texture2D" uid="uid://cpo2uye081cw6" path="res://Assets/Sprites/bkg.png" id="5_g38ql"]
+[ext_resource type="Shader" path="res://Shaders/color_filter.gdshader" id="6_dsifw"]
+[ext_resource type="Script" path="res://Scripts/color_filter.gd" id="7_bbc7v"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_56n7y"]
+atlas = ExtResource("1_h2kj3")
+region = Rect2(0, 0, 16, 44)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uhoj5"]
+atlas = ExtResource("1_h2kj3")
+region = Rect2(16, 0, 16, 44)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_1ogco"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_56n7y")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uhoj5")
+}],
+"loop": true,
+"name": &"default",
+"speed": 0.7
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mk7x2"]
+atlas = ExtResource("2_epc8h")
+region = Rect2(0, 0, 20, 45)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8rmh8"]
+atlas = ExtResource("2_epc8h")
+region = Rect2(20, 0, 20, 45)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_fja25"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mk7x2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8rmh8")
+}],
+"loop": true,
+"name": &"default",
+"speed": 0.8
+}]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_86qr3"]
+shader = ExtResource("6_dsifw")
+shader_parameter/at_night_float = 0.0
+
+[node name="Main" type="Node2D"]
+texture_filter = 1
+
+[node name="Bkg2" type="ColorRect" parent="."]
+offset_right = 180.0
+offset_bottom = 180.0
+color = Color(0.67451, 1, 0.568627, 1)
+
+[node name="Bkg" type="Sprite2D" parent="."]
+position = Vector2(90, 119)
+texture = ExtResource("5_g38ql")
+
+[node name="Chair" type="Sprite2D" parent="."]
+position = Vector2(40, 98.5)
+texture = ExtResource("1_ms4r6")
+
+[node name="Character0" type="AnimatedSprite2D" parent="."]
+position = Vector2(23, 90)
+sprite_frames = SubResource("SpriteFrames_1ogco")
+frame_progress = 0.655606
+script = ExtResource("3_xuy0s")
+
+[node name="Character1" type="AnimatedSprite2D" parent="."]
+position = Vector2(57, 89.5)
+sprite_frames = SubResource("SpriteFrames_fja25")
+frame_progress = 0.160944
+script = ExtResource("3_xuy0s")
+
+[node name="ColorFilter" type="ColorRect" parent="."]
+material = SubResource("ShaderMaterial_86qr3")
+offset_right = 180.0
+offset_bottom = 170.0
+script = ExtResource("7_bbc7v")

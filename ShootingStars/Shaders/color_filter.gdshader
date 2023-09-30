@@ -16,7 +16,7 @@ void fragment() {
 	COLOR = scr_color;
 
 	bool end_loop = false;
-	for (float x = 0.0f; x < 2.0f; x += 1.0f) {
+	for (float x = 0.0f; x < 4.0f; x += 1.0f) {
 		if (end_loop) {
 			break;
 		}
@@ -26,9 +26,9 @@ void fragment() {
 				break;
 			}
 
-			vec2 sample_pos_green = vec2(x/2.0f + 0.1f, y/9.0f + 0.1f);
-			vec2 sample_pos_red = vec2(x/2.0f + 0.1f, y/9.0f + 0.33f + 0.1f);
-			vec2 sample_pos_blue = vec2(x/2.0f + 0.1f, y/9.0f + 0.66f + 0.1f);
+			vec2 sample_pos_green = vec2(x/4.0f + 0.1f, y/9.0f + 0.1f);
+			vec2 sample_pos_red = vec2(x/4.0f + 0.1f, y/9.0f + 0.33f + 0.1f);
+			vec2 sample_pos_blue = vec2(x/4.0f + 0.1f, y/9.0f + 0.66f + 0.1f);
 
 			vec4 color_comp = texture(color_texture, sample_pos_green);
 			vec4 color_replace_red = texture(color_texture, sample_pos_red);

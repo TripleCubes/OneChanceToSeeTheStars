@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://d3vrc5bqadjsp"]
+[gd_scene load_steps=16 format=3 uid="uid://d3vrc5bqadjsp"]
 
 [ext_resource type="Texture2D" uid="uid://c573bqb6sobxh" path="res://Assets/Sprites/character_0.png" id="1_h2kj3"]
 [ext_resource type="Texture2D" uid="uid://dqb8cl3bogo08" path="res://Assets/Sprites/chair.png" id="1_ms4r6"]
@@ -6,6 +6,7 @@
 [ext_resource type="Script" path="res://Scripts/character.gd" id="3_xuy0s"]
 [ext_resource type="Texture2D" uid="uid://cpo2uye081cw6" path="res://Assets/Sprites/bkg.png" id="5_g38ql"]
 [ext_resource type="Shader" path="res://Shaders/color_filter.gdshader" id="6_dsifw"]
+[ext_resource type="PackedScene" uid="uid://ct34wu11qjtss" path="res://Scenes/UI/button.tscn" id="6_ttd4n"]
 [ext_resource type="Script" path="res://Scripts/color_filter.gd" id="7_bbc7v"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_56n7y"]
@@ -52,40 +53,54 @@ animations = [{
 "speed": 0.8
 }]
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_86qr3"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_l7geq"]
 shader = ExtResource("6_dsifw")
-shader_parameter/at_night_float = 0.0
+shader_parameter/at_night_float = null
 
 [node name="Main" type="Node2D"]
 texture_filter = 1
 
 [node name="Bkg2" type="ColorRect" parent="."]
-offset_right = 180.0
-offset_bottom = 180.0
-color = Color(0.67451, 1, 0.568627, 1)
+offset_right = 167.0
+offset_bottom = 167.0
+color = Color(0.745098, 1, 0.729412, 1)
 
 [node name="Bkg" type="Sprite2D" parent="."]
 position = Vector2(90, 119)
 texture = ExtResource("5_g38ql")
 
 [node name="Chair" type="Sprite2D" parent="."]
-position = Vector2(40, 98.5)
+position = Vector2(39, 98.5)
 texture = ExtResource("1_ms4r6")
 
 [node name="Character0" type="AnimatedSprite2D" parent="."]
-position = Vector2(23, 90)
+position = Vector2(22, 90)
 sprite_frames = SubResource("SpriteFrames_1ogco")
 frame_progress = 0.655606
 script = ExtResource("3_xuy0s")
 
 [node name="Character1" type="AnimatedSprite2D" parent="."]
-position = Vector2(57, 89.5)
+position = Vector2(56, 89.5)
 sprite_frames = SubResource("SpriteFrames_fja25")
 frame_progress = 0.160944
 script = ExtResource("3_xuy0s")
 
 [node name="ColorFilter" type="ColorRect" parent="."]
-material = SubResource("ShaderMaterial_86qr3")
-offset_right = 180.0
-offset_bottom = 170.0
+material = SubResource("ShaderMaterial_l7geq")
+offset_right = 167.0
+offset_bottom = 167.0
+mouse_filter = 2
 script = ExtResource("7_bbc7v")
+
+[node name="Button" parent="." instance=ExtResource("6_ttd4n")]
+position = Vector2(90, 80)
+text = "Test button
+Test button"
+w = 50.0
+h = 15.0
+
+[node name="Button2" parent="." instance=ExtResource("6_ttd4n")]
+position = Vector2(90, 100)
+text = "Test button"
+w = 50.0
+h = 9.0

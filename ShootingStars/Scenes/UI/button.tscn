@@ -1,0 +1,32 @@
+[gd_scene load_steps=4 format=3 uid="uid://ct34wu11qjtss"]
+
+[ext_resource type="Script" path="res://Scripts/UI/button.gd" id="1_c6ocw"]
+[ext_resource type="Theme" uid="uid://bond37gfa0v24" path="res://Styles/style.tres" id="2_12q7a"]
+[ext_resource type="Script" path="res://Scripts/UI/button_bkg.gd" id="2_rr3y3"]
+
+[node name="Button" type="Node2D"]
+texture_filter = 1
+script = ExtResource("1_c6ocw")
+
+[node name="Bkg" type="Node2D" parent="."]
+script = ExtResource("2_rr3y3")
+
+[node name="Button" type="Button" parent="."]
+offset_right = 8.0
+offset_bottom = 8.0
+focus_mode = 0
+theme = ExtResource("2_12q7a")
+alignment = 0
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+offset_left = 3.0
+offset_right = 10.0
+offset_bottom = 8.0
+mouse_filter = 2
+theme = ExtResource("2_12q7a")
+theme_override_constants/line_separation = -3
+fit_content = true
+scroll_active = false
+
+[connection signal="mouse_entered" from="Button" to="Bkg" method="_on_button_mouse_entered"]
+[connection signal="mouse_exited" from="Button" to="Bkg" method="_on_button_mouse_exited"]

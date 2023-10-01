@@ -111,7 +111,7 @@ script = ExtResource("7_bbc7v")
 [node name="Dialogue" type="RichTextLabel" parent="."]
 offset_left = 250.0
 offset_top = 100.0
-offset_right = 480.0
+offset_right = 460.0
 offset_bottom = 195.0
 theme = ExtResource("9_3bkww")
 theme_override_colors/default_color = Color(0, 0, 0, 0.678431)

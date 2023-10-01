@@ -24,18 +24,13 @@ func set_button_list(branch: Branch) -> void:
 	const SPACING: float = 10
 	var cursor_y: float = GV.dialogue_label.position.y + GV.dialogue_label.size.y + PADDING_TOP
 
-	var wait_time: float = 0
 	if is_character_0:
-		wait_time = GV.dialogue_line.line_0_time()
 		GV.dialogue_line.new_line(GV.character_0)
 	else:
-		wait_time = GV.dialogue_line.line_1_time()
 		GV.dialogue_line.new_line(GV.character_1)
 
-	GF.wait(wait_time + 0.1, func():
-		GV.dialogue_label.set_txt(current_branch.text)
-		GV.dialogue_label.size.y = 0
-	)
+	GV.dialogue_label.text = current_branch.text
+	GV.dialogue_label.size.y = 0
 	
 	for button in GV.button_list.get_children():
 		button.hide()

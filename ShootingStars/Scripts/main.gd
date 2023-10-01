@@ -32,3 +32,6 @@ func _on_up_button_signal_click():
 	OptionTree.go_up_branch()
 	GV.tree_view.setup()
 	GV.tree_view.shift_to_left()
+
+func _on_restart_button_signal_click():
+	GV.shooting_stars.started = false

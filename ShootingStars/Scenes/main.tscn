@@ -69,7 +69,6 @@ texture_filter = 1
 script = ExtResource("1_tdemq")
 
 [node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(0, -500)
 anchor_mode = 0
 
 [node name="Bkg2" type="ColorRect" parent="."]
@@ -207,6 +206,26 @@ text = "Back"
 w = 56.0
 h = 27.0
 
+[node name="RestartButton" parent="." instance=ExtResource("6_ttd4n")]
+modulate = Color(1, 1, 1, 0)
+position = Vector2(360, -70)
+text = "Restart"
+w = 80.0
+h = 27.0
+
+[node name="ThanksForPlaying" type="RichTextLabel" parent="."]
+modulate = Color(1, 1, 1, 0)
+offset_left = 350.0
+offset_top = -120.0
+offset_right = 480.0
+offset_bottom = -69.0
+theme = ExtResource("9_3bkww")
+theme_override_colors/default_color = Color(0, 0, 0, 0.678431)
+theme_override_constants/line_separation = -3
+text = "Thank you for playing"
+fit_content = true
+scroll_active = false
+
 [connection signal="signal_click" from="Buttons/Button" to="." method="_on_button_signal_click"]
 [connection signal="signal_click" from="Buttons/Button2" to="." method="_on_button_2_signal_click"]
 [connection signal="signal_click" from="Buttons/Button3" to="." method="_on_button_3_signal_click"]
@@ -216,3 +235,4 @@ h = 27.0
 [connection signal="signal_click" from="TreeButton" to="." method="_on_tree_button_signal_click"]
 [connection signal="signal_click" from="TreeView/UpButton" to="." method="_on_up_button_signal_click"]
 [connection signal="signal_click" from="TreeView/BackButton" to="." method="_on_back_button_signal_click"]
+[connection signal="signal_click" from="RestartButton" to="." method="_on_restart_button_signal_click"]

@@ -20,4 +20,11 @@ func tween(obj, property: NodePath, value: Variant, time: float, sine: bool) -> 
 		tween_var.tween_property(obj, property, value, time)
 
 func st(time: float) -> void:
-	tween(GV, "at_night_float", time, 4, true)
+	tween(GV, "at_night_float", time, 6, true)
+
+func reset() -> void:
+	st(0)
+	OptionTree.path.clear()
+	OptionTree.current_branch = GV.root_dialogue
+	OptionTree.previous_branch = GV.root_dialogue
+	GV.tree_view.position.x = -1000

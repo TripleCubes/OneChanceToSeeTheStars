@@ -6,7 +6,28 @@ var time_until_next_star: float = 0
 var shooting_star_list: = []
 var time_until_next_shooting_star: float = 0
 
-var started: = true
+var _shooting_star_started: = false
+
+var started: = false:
+	get: return started
+	set(val):
+		if started == val:
+			return
+
+		started = val
+		GF.wait(10, func(): _shooting_star_started = val)
+
+		if started:
+			GF.tween(GV.camera, "position", Vector2(0, -500), 1, true)
+
+			if GV.first_shooting_stars:
+				GF.wait(8, func(): GF.tween(GV.restart_button, "modulate", Color(1, 1, 1, 1), 1, true))
+				GF.wait(8, func(): GF.tween(GV.thanks_for_playing, "modulate", Color(1, 1, 1, 1), 1, true))
+			GV.first_shooting_stars = false
+		else:
+			GF.reset()
+			GF.wait(8, func(): GF.tween(GV.camera, "position", Vector2(0, 0), 1, true))
+			GF.wait(12, func(): GV.thanks_for_playing.modulate = Color(0, 0, 0, 0))
 
 func _draw():
 	_draw_stars()
@@ -32,18 +53,17 @@ func _draw_shooting_star(shooting_star: ShootingStar) -> void:
 	draw_line(head_pos - Vector2(0, shooting_star.max_radius/2), tail_pos, Color(1, 1, 1), 1)
 	
 func _process(_delta):
-	if not started:
-		return
+	if started:
+		time_until_next_star -= _delta
+		if time_until_next_star < 0:
+			star_list.append(Star.new())
+			time_until_next_star = randf_range(0.15, 0.3)
 
-	time_until_next_star -= _delta
-	if time_until_next_star < 0:
-		star_list.append(Star.new())
-		time_until_next_star = randf_range(0.15, 0.3)
-
-	time_until_next_shooting_star -= _delta
-	if time_until_next_shooting_star < 0:
-		shooting_star_list.append(ShootingStar.new())
-		time_until_next_shooting_star = randf_range(0.8, 1.2)
+	if _shooting_star_started:
+		time_until_next_shooting_star -= _delta
+		if time_until_next_shooting_star < 0:
+			shooting_star_list.append(ShootingStar.new())
+			time_until_next_shooting_star = randf_range(0.8, 1.2)
 
 	for i in range(star_list.size() - 1, -1, -1):
 		var star = star_list[i]

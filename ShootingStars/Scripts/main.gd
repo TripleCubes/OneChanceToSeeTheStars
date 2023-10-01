@@ -35,3 +35,6 @@ func _on_up_button_signal_click():
 
 func _on_restart_button_signal_click():
 	GV.shooting_stars.started = false
+
+func _on_start_button_signal_click():
+	GF.start_game()

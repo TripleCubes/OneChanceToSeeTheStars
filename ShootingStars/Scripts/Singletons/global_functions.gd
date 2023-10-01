@@ -28,3 +28,12 @@ func reset() -> void:
 	OptionTree.current_branch = GV.root_dialogue
 	OptionTree.previous_branch = GV.root_dialogue
 	GV.tree_view.position.x = -1000
+
+func start_game() -> void:
+	get_node("/root/Main/Intro").hide()
+	GF.wait(2, func():
+		get_node("/root/Main/DialogueLine").show()
+		get_node("/root/Main/Dialogue").show()
+		get_node("/root/Main/NextButton").show()
+		get_node("/root/Main/TreeButton").show()
+	)

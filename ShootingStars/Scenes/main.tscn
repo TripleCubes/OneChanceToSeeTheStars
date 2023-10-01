@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://d3vrc5bqadjsp"]
+[gd_scene load_steps=19 format=3 uid="uid://d3vrc5bqadjsp"]
 
 [ext_resource type="Texture2D" uid="uid://c573bqb6sobxh" path="res://Assets/Sprites/character_0.png" id="1_h2kj3"]
 [ext_resource type="Texture2D" uid="uid://dqb8cl3bogo08" path="res://Assets/Sprites/chair.png" id="1_ms4r6"]
@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://cpo2uye081cw6" path="res://Assets/Sprites/bkg.png" id="5_g38ql"]
 [ext_resource type="Shader" path="res://Shaders/color_filter.gdshader" id="6_dsifw"]
 [ext_resource type="PackedScene" uid="uid://ct34wu11qjtss" path="res://Scenes/UI/button.tscn" id="6_ttd4n"]
+[ext_resource type="Script" path="res://Scripts/UI/dialogue_line.gd" id="7_3efn8"]
 [ext_resource type="Script" path="res://Scripts/color_filter.gd" id="7_bbc7v"]
 [ext_resource type="Theme" uid="uid://bond37gfa0v24" path="res://Styles/style.tres" id="9_3bkww"]
 
@@ -88,6 +89,9 @@ sprite_frames = SubResource("SpriteFrames_fja25")
 frame_progress = 0.160944
 script = ExtResource("3_xuy0s")
 
+[node name="DialogueLine" type="Node2D" parent="."]
+script = ExtResource("7_3efn8")
+
 [node name="ColorFilter" type="ColorRect" parent="."]
 material = SubResource("ShaderMaterial_l7geq")
 offset_right = 167.0
@@ -97,12 +101,13 @@ script = ExtResource("7_bbc7v")
 
 [node name="Dialogue" type="RichTextLabel" parent="."]
 offset_left = 90.0
-offset_top = 60.0
+offset_top = 40.0
 offset_right = 143.0
-offset_bottom = 86.0
+offset_bottom = 66.0
 theme = ExtResource("9_3bkww")
 theme_override_colors/default_color = Color(0, 0, 0, 0.568627)
 theme_override_constants/line_separation = -3
+text = "Dialogue"
 scroll_active = false
 
 [node name="Buttons" type="Node2D" parent="."]

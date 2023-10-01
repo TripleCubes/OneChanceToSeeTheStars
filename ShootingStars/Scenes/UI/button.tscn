@@ -7,6 +7,8 @@
 [node name="Button" type="Node2D"]
 texture_filter = 1
 script = ExtResource("1_c6ocw")
+w = 7.0
+h = 8.0
 
 [node name="Bkg" type="Node2D" parent="."]
 script = ExtResource("2_rr3y3")

@@ -7,6 +7,9 @@ var current_branch: Branch = null:
 		current_branch = val
 		set_button_list(current_branch)
 
+var is_character_0: bool:
+	get: return current_branch.from_character_0
+
 # Get branch by text, search from all branches
 func gb(in_text: String) -> Branch:
 	var result: = GF.find_in_list(branch_list, in_text, func(list_item): return list_item.text)

@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://d3vrc5bqadjsp"]
+[gd_scene load_steps=23 format=3 uid="uid://d3vrc5bqadjsp"]
 
 [ext_resource type="Texture2D" uid="uid://c573bqb6sobxh" path="res://Assets/Sprites/character_0.png" id="1_h2kj3"]
 [ext_resource type="Texture2D" uid="uid://dqb8cl3bogo08" path="res://Assets/Sprites/chair.png" id="1_ms4r6"]
@@ -12,6 +12,7 @@
 [ext_resource type="Script" path="res://Scripts/color_filter.gd" id="7_bbc7v"]
 [ext_resource type="Script" path="res://Scripts/UI/option_line.gd" id="8_jtvfh"]
 [ext_resource type="Theme" uid="uid://bond37gfa0v24" path="res://Styles/style.tres" id="9_3bkww"]
+[ext_resource type="Script" path="res://Scripts/shooting_stars.gd" id="9_oim0u"]
 [ext_resource type="Script" path="res://Scripts/UI/dialogue_label.gd" id="12_u08na"]
 [ext_resource type="Script" path="res://Scripts/tree_view.gd" id="14_jksge"]
 
@@ -67,7 +68,12 @@ shader_parameter/at_night_float = null
 texture_filter = 1
 script = ExtResource("1_tdemq")
 
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(0, -500)
+anchor_mode = 0
+
 [node name="Bkg2" type="ColorRect" parent="."]
+offset_top = -500.0
 offset_right = 500.0
 offset_bottom = 500.0
 color = Color(0.745098, 1, 0.729412, 1)
@@ -102,8 +108,13 @@ script = ExtResource("7_3efn8")
 [node name="OptionLine" type="Node2D" parent="."]
 script = ExtResource("8_jtvfh")
 
+[node name="ShootingStars" type="Node2D" parent="."]
+position = Vector2(0, -500)
+script = ExtResource("9_oim0u")
+
 [node name="ColorFilter" type="ColorRect" parent="."]
 material = SubResource("ShaderMaterial_l7geq")
+offset_top = -500.0
 offset_right = 500.0
 offset_bottom = 500.0
 mouse_filter = 2

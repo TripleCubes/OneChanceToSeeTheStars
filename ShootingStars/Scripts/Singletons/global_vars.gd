@@ -10,4 +10,4 @@ extends Node
 @onready var character_0: = get_node("/root/Main/Character0")
 @onready var character_1: = get_node("/root/Main/Character1")
 
-var at_night_float: float = 0
+var at_night_float: float = 2

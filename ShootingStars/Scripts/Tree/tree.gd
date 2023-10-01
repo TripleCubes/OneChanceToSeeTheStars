@@ -20,22 +20,30 @@ func gb(in_text: String) -> Branch:
 	return branch_list[result]
 
 func set_button_list(branch: Branch) -> void:
+	const PADDING_TOP: float = 60
+	const SPACING: float = 10
+	var cursor_y: float = GV.dialogue_label.position.y + PADDING_TOP
+
 	GV.dialogue_label.text = current_branch.text
 
 	for button in GV.button_list.get_children():
 		button.hide()
 	
 	if branch.connected_to.size() == 1:
-		GV.next_button.position.x = GV.next_button_original_pos_x
+		GV.next_button.show()
 		return
 
-	GV.next_button.position.x = -1000
+	GV.next_button.hide()
 
 	for i in branch.connected_to.size():
 		var sub_branch: Branch = branch.connected_to[i]
 		var button = GV.button_list.get_child(i)
 		button.text = sub_branch.text
 		button.show()
+
+		button.position.x = GV.dialogue_label.position.x + 10
+		button.position.y = cursor_y
+		cursor_y += button.h + SPACING
 
 func button_pressed(index: int) -> void:
 	current_branch = current_branch.connected_to[index]

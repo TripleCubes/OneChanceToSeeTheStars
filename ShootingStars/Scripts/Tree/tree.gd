@@ -2,10 +2,12 @@ extends Node
 
 var path: = []
 var branch_list: = []
+var previous_branch: Branch = null
 var _current_branch: Branch = null
 var current_branch: Branch:
 	get: return _current_branch
 	set(val):
+		previous_branch = _current_branch
 		_current_branch = val
 		path.append(_current_branch)
 		set_button_list(_current_branch)
@@ -14,6 +16,7 @@ var is_character_0: bool:
 	get: return current_branch.from_character_0
 
 func go_up_branch() -> void:
+	previous_branch = _current_branch
 	if path.size() < 2:
 		return
 	_current_branch = path[path.size() - 2]

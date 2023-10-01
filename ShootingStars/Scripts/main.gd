@@ -26,6 +26,9 @@ func _on_back_button_signal_click():
 	GV.tree_view.position.x = -1000
 
 func _on_up_button_signal_click():
+	if GV.tree_view.get_node("Main").position.x != 0:
+		return
+
 	OptionTree.go_up_branch()
 	GV.tree_view.setup()
 	GV.tree_view.shift_to_left()

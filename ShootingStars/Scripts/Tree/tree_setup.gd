@@ -15,3 +15,4 @@ func _ready():
 	OT.gb("Nothing").ab0("Nothing?").ab1("Nothing").ab0("...")
 
 	OT.current_branch = root
+	OT.previous_branch = root

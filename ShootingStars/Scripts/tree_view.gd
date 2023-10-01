@@ -8,7 +8,10 @@ var highlight: Vector2
 func setup() -> void:
 	left = []
 	right = []
-	left = OptionTree.path[OptionTree.path.size() - 2].connected_to
+	if OptionTree.path.size() == 1:
+		left = [OptionTree.current_branch]
+	else:
+		left = OptionTree.path[OptionTree.path.size() - 2].connected_to
 	right = OptionTree.current_branch.connected_to
 
 	for button in $Main.get_children():
@@ -27,13 +30,19 @@ func setup() -> void:
 	cursor_y = 85
 	for branch in right:
 		var button_h: = _create_button($Main, 270, cursor_y, branch.text, func():
+			if $Main.position.x != 0:
+				return
 			OptionTree.current_branch = branch
 			shift_to_right()
 		)
 		cursor_y += button_h + 10
 
 func shift_to_left() -> void:
-	if OptionTree.path.size() == 1:
+	var dont_return: bool = false
+	if OptionTree._current_branch == OptionTree.path[0] and OptionTree.previous_branch.connected_from.size() != 0:
+		dont_return = true
+
+	if not dont_return and OptionTree.path.size() <= 1:
 		return
 
 	for button in $FarSide.get_children():
@@ -93,16 +102,19 @@ func _draw():
 	else:
 		color_left = CHARACTER_1_COLOR
 
-	if OptionTree.current_branch.connected_to[0].from_character_0:
-		color_right = CHARACTER_0_COLOR
-	else:
-		color_right = CHARACTER_1_COLOR
+	if OptionTree.current_branch.connected_to.size() != 0:
+		if OptionTree.current_branch.connected_to[0].from_character_0:
+			color_right = CHARACTER_0_COLOR
+		else:
+			color_right = CHARACTER_1_COLOR
 
-	if $Main.position.x == 0:
-		draw_line(Vector2(240, highlight.x), Vector2(240, highlight.x + highlight.y), Color(1, 1, 1), 2)
+		if $Main.position.x == 0:
+			draw_line(Vector2(240, highlight.x), Vector2(240, highlight.x + highlight.y), Color(1, 1, 1), 2)
 
 	draw_rect(Rect2(20, 70, 8, 8), color_left)
-	draw_rect(Rect2(270, 70, 8, 8), color_right)
+
+	if OptionTree.current_branch.connected_to.size() != 0:
+		draw_rect(Rect2(270, 70, 8, 8), color_right)
 
 func _process(_delta):
 	queue_redraw()

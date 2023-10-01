@@ -12,6 +12,9 @@ var current_branch: Branch:
 		path.append(_current_branch)
 		set_button_list(_current_branch)
 
+		if not _current_branch.callable.is_null():
+			_current_branch.callable.call()
+
 var is_character_0: bool:
 	get: return current_branch.from_character_0
 
@@ -22,6 +25,9 @@ func go_up_branch() -> void:
 	_current_branch = path[path.size() - 2]
 	path.pop_back()
 	set_button_list(_current_branch)
+
+	if not _current_branch.callable.is_null():
+		_current_branch.callable.call()
 
 func jump_branch(branch: Branch) -> void:
 	path.pop_back()

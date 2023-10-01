@@ -5,13 +5,9 @@ var text: String = ""
 var from_character_0: bool
 var connected_from: = []
 var connected_to: = []
+var callable: Callable
 
 func _init(in_text: String, in_from_character_0: bool):
-	var find: = OptionTree.branch_list.find(in_text)
-	if find != -1:
-		print(in_text + " Already added")
-		return
-
 	text = in_text
 	from_character_0 = in_from_character_0
 	OptionTree.branch_list.append(self)
@@ -49,6 +45,11 @@ func a(in_text: String) -> void:
 	var branch: = OptionTree.gb(in_text)
 	branch.connected_from.append(self)
 	connected_to.append(branch)
+
+# Add callable
+func ac(in_callable: Callable) -> Branch:
+	callable = in_callable
+	return self
 
 # Get branch by text, search from connected_to list
 func gb(in_text: String) -> Branch:

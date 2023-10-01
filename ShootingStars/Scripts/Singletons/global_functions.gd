@@ -18,3 +18,6 @@ func tween(obj, property: NodePath, value: Variant, time: float, sine: bool) -> 
 		tween_var.tween_property(obj, property, value, time).set_trans(Tween.TRANS_SINE)
 	else:
 		tween_var.tween_property(obj, property, value, time)
+
+func st(time: float) -> void:
+	tween(GV, "at_night_float", time, 4, true)

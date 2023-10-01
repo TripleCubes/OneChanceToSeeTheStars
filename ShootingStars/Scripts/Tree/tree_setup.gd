@@ -12,7 +12,11 @@ func _ready():
 	OT.gb("Option 2222222222222222222222222222").a("You are weird bro")
 	OT.gb("Option 33333333333333333333333333333").a("You are weird bro")
 
-	OT.gb("Nothing").ab0("Nothing?").ab1("Nothing").ab0("...")
+	OT.gb("Nothing").ab0("Nothing?").ab1("Nothing").ab0("...").ab0("...").ac(func(): GF.st(0)).ab0("...").ac(func(): GF.st(1)).ab0("...").ab0("...").ab0("...") \
+	.ab0("...").ab0("...").ab0("...").ab0("...").ab0("...").ab0("...").ab0("...").ab0("...").ab0("...").ab0("...") \
+	.ab0("...").ab0("...").ab0("...").ab0("...").ab0("...").ab0("...").ab0("...").ab0("...").ab0("...").ab0("...") \
+	.ab0("...").ab0("...").ab0("...").ab0("...").ab0("...").ab0("...").ab0("...").ab0("...").ab0("...").ab0("...") \
+	.ab0("...").ab0("...").ab0("...").ab0("...").ab0("...").ab0("...").ab0("...").ab0("...").ab0("...").ab0("...")
 
 	OT.current_branch = root
 	OT.previous_branch = root

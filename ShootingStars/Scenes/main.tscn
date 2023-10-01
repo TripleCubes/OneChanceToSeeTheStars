@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://d3vrc5bqadjsp"]
+[gd_scene load_steps=22 format=3 uid="uid://d3vrc5bqadjsp"]
 
 [ext_resource type="Texture2D" uid="uid://c573bqb6sobxh" path="res://Assets/Sprites/character_0.png" id="1_h2kj3"]
 [ext_resource type="Texture2D" uid="uid://dqb8cl3bogo08" path="res://Assets/Sprites/chair.png" id="1_ms4r6"]
@@ -13,6 +13,7 @@
 [ext_resource type="Script" path="res://Scripts/UI/option_line.gd" id="8_jtvfh"]
 [ext_resource type="Theme" uid="uid://bond37gfa0v24" path="res://Styles/style.tres" id="9_3bkww"]
 [ext_resource type="Script" path="res://Scripts/UI/dialogue_label.gd" id="12_u08na"]
+[ext_resource type="Script" path="res://Scripts/tree_view.gd" id="14_jksge"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_56n7y"]
 atlas = ExtResource("1_h2kj3")
@@ -124,40 +125,75 @@ script = ExtResource("12_u08na")
 [node name="Buttons" type="Node2D" parent="."]
 
 [node name="Button" parent="Buttons" instance=ExtResource("6_ttd4n")]
-position = Vector2(280, 150)
+position = Vector2(260, 150)
 text = "Test button
 Test button"
 w = 180.0
 h = 48.0
 
 [node name="Button2" parent="Buttons" instance=ExtResource("6_ttd4n")]
-position = Vector2(280, 207)
+position = Vector2(260, 207)
 text = "Test button"
 w = 180.0
 h = 27.0
 
 [node name="Button3" parent="Buttons" instance=ExtResource("6_ttd4n")]
-position = Vector2(280, 240)
+position = Vector2(260, 240)
 text = "Test btn"
 w = 180.0
 h = 27.0
 
 [node name="Button4" parent="Buttons" instance=ExtResource("6_ttd4n")]
-position = Vector2(280, 270)
+position = Vector2(260, 270)
 text = "Test btn"
 w = 180.0
 h = 27.0
 
 [node name="Button5" parent="Buttons" instance=ExtResource("6_ttd4n")]
-position = Vector2(280, 300)
+position = Vector2(260, 300)
 text = "Test btn"
 w = 180.0
 h = 27.0
 
 [node name="NextButton" parent="." instance=ExtResource("6_ttd4n")]
-position = Vector2(370, 370)
+position = Vector2(385, 370)
 text = "Next"
-w = 60.0
+w = 55.0
+h = 27.0
+
+[node name="TreeButton" parent="." instance=ExtResource("6_ttd4n")]
+position = Vector2(385, 410)
+text = "Tree"
+w = 55.0
+h = 27.0
+
+[node name="TreeView" type="ColorRect" parent="."]
+offset_left = -1300.0
+offset_right = -800.0
+offset_bottom = 500.0
+color = Color(0, 0, 0, 0.364706)
+script = ExtResource("14_jksge")
+
+[node name="FarSide" type="Control" parent="TreeView"]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Main" type="Control" parent="TreeView"]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="UpButton" parent="TreeView" instance=ExtResource("6_ttd4n")]
+position = Vector2(20, 20)
+text = "Up"
+w = 38.0
+h = 27.0
+
+[node name="BackButton" parent="TreeView" instance=ExtResource("6_ttd4n")]
+position = Vector2(424, 20)
+text = "Back"
+w = 56.0
 h = 27.0
 
 [connection signal="signal_click" from="Buttons/Button" to="." method="_on_button_signal_click"]
@@ -166,3 +202,6 @@ h = 27.0
 [connection signal="signal_click" from="Buttons/Button4" to="." method="_on_button_4_signal_click"]
 [connection signal="signal_click" from="Buttons/Button5" to="." method="_on_button_5_signal_click"]
 [connection signal="signal_click" from="NextButton" to="." method="_on_next_button_signal_click"]
+[connection signal="signal_click" from="TreeButton" to="." method="_on_tree_button_signal_click"]
+[connection signal="signal_click" from="TreeView/UpButton" to="." method="_on_up_button_signal_click"]
+[connection signal="signal_click" from="TreeView/BackButton" to="." method="_on_back_button_signal_click"]

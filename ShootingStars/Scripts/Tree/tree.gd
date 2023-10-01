@@ -1,14 +1,28 @@
 extends Node
 
+var path: = []
 var branch_list: = []
-var current_branch: Branch = null:
-	get: return current_branch
+var _current_branch: Branch = null
+var current_branch: Branch:
+	get: return _current_branch
 	set(val):
-		current_branch = val
-		set_button_list(current_branch)
+		_current_branch = val
+		path.append(_current_branch)
+		set_button_list(_current_branch)
 
 var is_character_0: bool:
 	get: return current_branch.from_character_0
+
+func go_up_branch() -> void:
+	if path.size() < 2:
+		return
+	_current_branch = path[path.size() - 2]
+	path.pop_back()
+	set_button_list(_current_branch)
+
+func jump_branch(branch: Branch) -> void:
+	path.pop_back()
+	current_branch = branch
 
 # Get branch by text, search from all branches
 func gb(in_text: String) -> Branch:
@@ -20,9 +34,8 @@ func gb(in_text: String) -> Branch:
 	return branch_list[result]
 
 func set_button_list(branch: Branch) -> void:
-	const PADDING_TOP: float = 30
+	const PADDING_TOP: float = 10
 	const SPACING: float = 10
-	var cursor_y: float = GV.dialogue_label.position.y + GV.dialogue_label.size.y + PADDING_TOP
 
 	if is_character_0:
 		GV.dialogue_line.new_line(GV.character_0)
@@ -31,6 +44,8 @@ func set_button_list(branch: Branch) -> void:
 
 	GV.dialogue_label.text = current_branch.text
 	GV.dialogue_label.size.y = 0
+
+	var cursor_y: float = GV.dialogue_label.position.y + GV.dialogue_label.size.y + PADDING_TOP
 	
 	for button in GV.button_list.get_children():
 		button.hide()

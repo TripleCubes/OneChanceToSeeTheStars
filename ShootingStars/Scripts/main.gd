@@ -17,3 +17,15 @@ func _on_button_5_signal_click():
 
 func _on_next_button_signal_click():
 	OptionTree.button_pressed(0)
+
+func _on_tree_button_signal_click():
+	GV.tree_view.position.x = 0
+	GV.tree_view.setup()
+
+func _on_back_button_signal_click():
+	GV.tree_view.position.x = -1000
+
+func _on_up_button_signal_click():
+	OptionTree.go_up_branch()
+	GV.tree_view.setup()
+	GV.tree_view.shift_to_left()

@@ -7,7 +7,7 @@
 [node name="Button" type="Node2D"]
 texture_filter = 1
 script = ExtResource("1_c6ocw")
-w = 7.0
+w = 16.0
 h = 8.0
 
 [node name="Bkg" type="Node2D" parent="."]
@@ -21,8 +21,7 @@ theme = ExtResource("2_12q7a")
 alignment = 0
 
 [node name="RichTextLabel" type="RichTextLabel" parent="."]
-offset_left = 3.0
-offset_right = 10.0
+offset_right = 7.0
 offset_bottom = 8.0
 mouse_filter = 2
 theme = ExtResource("2_12q7a")

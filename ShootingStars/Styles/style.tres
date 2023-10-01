@@ -1,4 +1,4 @@
-[gd_resource type="Theme" load_steps=7 format=3 uid="uid://bond37gfa0v24"]
+[gd_resource type="Theme" load_steps=8 format=3 uid="uid://bond37gfa0v24"]
 
 [ext_resource type="FontFile" uid="uid://dnykoxdqsytk8" path="res://Assets/Fonts/Munro/munro-small.ttf" id="1_50wme"]
 
@@ -18,6 +18,12 @@ bg_color = Color(0.8, 0.529412, 0.278431, 0)
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5ump3"]
 bg_color = Color(0, 0, 0, 0)
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_825cf"]
+content_margin_left = 10.0
+content_margin_right = 5.0
+content_margin_bottom = 3.0
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
 [resource]
 Button/colors/font_color = Color(1, 1, 1, 1)
 Button/colors/font_focus_color = Color(1, 1, 1, 1)
@@ -30,8 +36,9 @@ Button/styles/hover = SubResource("StyleBoxFlat_jwan4")
 Button/styles/normal = SubResource("StyleBoxFlat_438f4")
 Button/styles/pressed = SubResource("StyleBoxFlat_0fkbj")
 Label/colors/font_color = Color(0, 0, 0, 0.560784)
-Label/font_sizes/font_size = 7
+Label/font_sizes/font_size = 20
 Label/fonts/font = ExtResource("1_50wme")
 Label/styles/normal = SubResource("StyleBoxFlat_5ump3")
-RichTextLabel/font_sizes/normal_font_size = 7
+RichTextLabel/font_sizes/normal_font_size = 20
 RichTextLabel/fonts/normal_font = ExtResource("1_50wme")
+RichTextLabel/styles/normal = SubResource("StyleBoxFlat_825cf")

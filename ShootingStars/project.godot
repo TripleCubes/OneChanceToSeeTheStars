@@ -28,7 +28,6 @@ window/size/viewport_width=500
 window/size/viewport_height=500
 window/size/resizable=false
 window/stretch/mode="canvas_items"
-window/stretch/scale=3.0
 
 [rendering]
 

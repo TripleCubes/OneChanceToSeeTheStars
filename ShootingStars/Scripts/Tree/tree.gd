@@ -25,11 +25,11 @@ func set_button_list(branch: Branch) -> void:
 	for button in GV.button_list.get_children():
 		button.hide()
 	
-	GV.next_button.hide()
-
 	if branch.connected_to.size() == 1:
-		GV.next_button.show()
+		GV.next_button.position.x = GV.next_button_original_pos_x
 		return
+
+	GV.next_button.position.x = -1000
 
 	for i in branch.connected_to.size():
 		var sub_branch: Branch = branch.connected_to[i]

@@ -65,26 +65,30 @@ texture_filter = 1
 script = ExtResource("1_tdemq")
 
 [node name="Bkg2" type="ColorRect" parent="."]
-offset_right = 167.0
-offset_bottom = 167.0
+offset_right = 500.0
+offset_bottom = 500.0
 color = Color(0.745098, 1, 0.729412, 1)
 
 [node name="Bkg" type="Sprite2D" parent="."]
-position = Vector2(90, 119)
+position = Vector2(268, 374)
+scale = Vector2(3, 3)
 texture = ExtResource("5_g38ql")
 
 [node name="Chair" type="Sprite2D" parent="."]
-position = Vector2(39, 98.5)
+position = Vector2(118, 313)
+scale = Vector2(3, 3)
 texture = ExtResource("1_ms4r6")
 
 [node name="Character0" type="AnimatedSprite2D" parent="."]
-position = Vector2(22, 90)
+position = Vector2(68, 287)
+scale = Vector2(3, 3)
 sprite_frames = SubResource("SpriteFrames_1ogco")
 frame_progress = 0.655606
 script = ExtResource("3_xuy0s")
 
 [node name="Character1" type="AnimatedSprite2D" parent="."]
-position = Vector2(56, 89.5)
+position = Vector2(164, 286)
+scale = Vector2(3, 3)
 sprite_frames = SubResource("SpriteFrames_fja25")
 frame_progress = 0.160944
 script = ExtResource("3_xuy0s")
@@ -94,16 +98,16 @@ script = ExtResource("7_3efn8")
 
 [node name="ColorFilter" type="ColorRect" parent="."]
 material = SubResource("ShaderMaterial_l7geq")
-offset_right = 167.0
-offset_bottom = 167.0
+offset_right = 500.0
+offset_bottom = 500.0
 mouse_filter = 2
 script = ExtResource("7_bbc7v")
 
 [node name="Dialogue" type="RichTextLabel" parent="."]
-offset_left = 90.0
-offset_top = 40.0
-offset_right = 143.0
-offset_bottom = 66.0
+offset_left = 270.0
+offset_top = 100.0
+offset_right = 470.0
+offset_bottom = 195.0
 theme = ExtResource("9_3bkww")
 theme_override_colors/default_color = Color(0, 0, 0, 0.568627)
 theme_override_constants/line_separation = -3
@@ -113,41 +117,41 @@ scroll_active = false
 [node name="Buttons" type="Node2D" parent="."]
 
 [node name="Button" parent="Buttons" instance=ExtResource("6_ttd4n")]
-position = Vector2(90, 80)
+position = Vector2(280, 150)
 text = "Test button
 Test button"
-w = 50.0
-h = 15.0
+w = 150.0
+h = 48.0
 
 [node name="Button2" parent="Buttons" instance=ExtResource("6_ttd4n")]
-position = Vector2(90, 100)
+position = Vector2(280, 207)
 text = "Test button"
-w = 50.0
-h = 9.0
+w = 150.0
+h = 27.0
 
 [node name="Button3" parent="Buttons" instance=ExtResource("6_ttd4n")]
-position = Vector2(90, 112)
+position = Vector2(280, 240)
 text = "Test btn"
-w = 50.0
-h = 9.0
+w = 150.0
+h = 27.0
 
 [node name="Button4" parent="Buttons" instance=ExtResource("6_ttd4n")]
-position = Vector2(90, 124)
+position = Vector2(280, 270)
 text = "Test btn"
-w = 50.0
-h = 9.0
+w = 150.0
+h = 27.0
 
 [node name="Button5" parent="Buttons" instance=ExtResource("6_ttd4n")]
-position = Vector2(90, 136)
+position = Vector2(280, 300)
 text = "Test btn"
-w = 50.0
-h = 9.0
+w = 150.0
+h = 27.0
 
 [node name="NextButton" parent="." instance=ExtResource("6_ttd4n")]
-position = Vector2(120, 150)
+position = Vector2(390, 370)
 text = "Next"
-w = 20.0
-h = 9.0
+w = 60.0
+h = 27.0
 
 [connection signal="signal_click" from="Buttons/Button" to="." method="_on_button_signal_click"]
 [connection signal="signal_click" from="Buttons/Button2" to="." method="_on_button_2_signal_click"]

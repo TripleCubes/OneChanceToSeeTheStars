@@ -7,13 +7,13 @@ var _bkg_fill_percentage: float = 0
 var _hovered: = false
 
 func _draw():
-	draw_rect(Rect2(0, 1, rtl.size.x, rtl.size.y - 1), Color(0, 0, 0, 0.5))
+	draw_rect(Rect2(0, 0, rtl.size.x, rtl.size.y), Color(0, 0, 0, 0.5))
 
 	var bkg_fill_w: float = _bkg_fill_percentage * rtl.size.x
-	draw_rect(Rect2(0, 1, bkg_fill_w, rtl.size.y - 1), Color(1, 1, 1, 0.4))
+	draw_rect(Rect2(0, 0, bkg_fill_w, rtl.size.y), Color(1, 1, 1, 0.4))
 
 	if _hovered:
-		draw_rect(Rect2(0, 1, rtl.size.x, rtl.size.y - 1), Color(1, 1, 1), false, 0.666)
+		draw_rect(Rect2(0, 0, rtl.size.x, rtl.size.y), Color(1, 1, 1), false, 2)
 
 func _process(_delta):
 	if Engine.is_editor_hint():

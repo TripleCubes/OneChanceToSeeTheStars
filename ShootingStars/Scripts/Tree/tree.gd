@@ -36,11 +36,13 @@ func set_button_list(branch: Branch) -> void:
 		button.hide()
 	
 	if branch.connected_to.size() == 1:
+		# GV.option_line.new_line([])
 		GV.next_button.position.x = GV.next_button_original_pos_x
 		return
 
 	GV.next_button.position.x = -1000
 
+	var button_pos_list_y: = []
 	for i in branch.connected_to.size():
 		var sub_branch: Branch = branch.connected_to[i]
 		var button = GV.button_list.get_child(i)
@@ -49,7 +51,10 @@ func set_button_list(branch: Branch) -> void:
 
 		button.position.x = GV.dialogue_label.position.x + 10
 		button.position.y = cursor_y
+		button_pos_list_y.append(cursor_y)
 		cursor_y += button.h + SPACING
+
+	# GV.option_line.new_line(button_pos_list_y)
 
 func button_pressed(index: int) -> void:
 	current_branch = current_branch.connected_to[index]

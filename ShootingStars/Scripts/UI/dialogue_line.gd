@@ -63,7 +63,7 @@ class Line:
 	func _draw_line_1(color: Color, draw_length: float) -> void:
 		var character_point: = _get_characters_point(_character)
 		var dialogue_point: = Vector2(GV.dialogue_label.position.x + 12, GV.dialogue_label.position.y - 12)
-		var curve_h: float = 50
+		var curve_h: float = 30
 		
 		var length_0_max = character_point.y - dialogue_point.y + curve_h
 		var length_1_max = dialogue_point.x - character_point.x

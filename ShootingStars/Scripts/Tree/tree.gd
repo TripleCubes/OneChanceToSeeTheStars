@@ -24,19 +24,23 @@ func set_button_list(branch: Branch) -> void:
 	const SPACING: float = 10
 	var cursor_y: float = GV.dialogue_label.position.y + GV.dialogue_label.size.y + PADDING_TOP
 
+	var wait_time: float = 0
 	if is_character_0:
+		wait_time = GV.dialogue_line.line_0_time()
 		GV.dialogue_line.new_line(GV.character_0)
 	else:
+		wait_time = GV.dialogue_line.line_1_time()
 		GV.dialogue_line.new_line(GV.character_1)
 
-	GV.dialogue_label.text = current_branch.text
-	GV.dialogue_label.size.y = 0
-
+	GF.wait(wait_time + 0.1, func():
+		GV.dialogue_label.set_txt(current_branch.text)
+		GV.dialogue_label.size.y = 0
+	)
+	
 	for button in GV.button_list.get_children():
 		button.hide()
 	
 	if branch.connected_to.size() == 1:
-		# GV.option_line.new_line([])
 		GV.next_button.position.x = GV.next_button_original_pos_x
 		return
 
@@ -53,8 +57,6 @@ func set_button_list(branch: Branch) -> void:
 		button.position.y = cursor_y
 		button_pos_list_y.append(cursor_y)
 		cursor_y += button.h + SPACING
-
-	# GV.option_line.new_line(button_pos_list_y)
 
 func button_pressed(index: int) -> void:
 	current_branch = current_branch.connected_to[index]

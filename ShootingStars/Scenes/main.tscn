@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://d3vrc5bqadjsp"]
+[gd_scene load_steps=21 format=3 uid="uid://d3vrc5bqadjsp"]
 
 [ext_resource type="Texture2D" uid="uid://c573bqb6sobxh" path="res://Assets/Sprites/character_0.png" id="1_h2kj3"]
 [ext_resource type="Texture2D" uid="uid://dqb8cl3bogo08" path="res://Assets/Sprites/chair.png" id="1_ms4r6"]
@@ -12,6 +12,7 @@
 [ext_resource type="Script" path="res://Scripts/color_filter.gd" id="7_bbc7v"]
 [ext_resource type="Script" path="res://Scripts/UI/option_line.gd" id="8_jtvfh"]
 [ext_resource type="Theme" uid="uid://bond37gfa0v24" path="res://Styles/style.tres" id="9_3bkww"]
+[ext_resource type="Script" path="res://Scripts/UI/dialogue_label.gd" id="12_u08na"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_56n7y"]
 atlas = ExtResource("1_h2kj3")
@@ -118,6 +119,7 @@ theme_override_constants/line_separation = -3
 text = "Dialogue"
 fit_content = true
 scroll_active = false
+script = ExtResource("12_u08na")
 
 [node name="Buttons" type="Node2D" parent="."]
 

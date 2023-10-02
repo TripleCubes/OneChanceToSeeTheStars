@@ -38,14 +38,12 @@ func _ready():
 	.asf1("Do you know the light from the stars are from years away, so we are actually looking into the past?")
 	OT.gb("How about just wish for more shooting stars?").a("That is a nice one")
 
-	# ->
 	Branch.new("Well those are stars, they are like our sun, there wont be life on them", true) \
 	.ab0("I do wonder if there are alien life tho") \
 	.ab1("I mean the universe is so big, there must be another planet with life, right?") \
 	.ab0("Yeah").ab0("Maybe they are waiting for shooting stars like us")
 	OT.gb("I wonder if on one of those star there are people also looking at our planet").a("Well those are stars, they are like our sun, there wont be life on them")
 
-	# ->
 	Branch.new("Yeah I heard those so many times", true).ab1("I mean that means if we go far enough we can look into our past") \
 	.ab0("We will need to go faster than light for that tho,").ab0("And even if we managed to do that everything will be tiny") \
 	.ab1("You think we managed to go faster than light but not getting a good picture from the telescope?") \
@@ -73,13 +71,14 @@ func _ready():
 
 
 
-	#
-	Branch.new("Cool. I like pastel pink", true)
+	Branch.new("Cool. I like pastel pink", true).ab1("A pastel color enjoyer I see").ab0("Mhm, those colors are so pleasing")
 	OT.gb("Maybe light blue").a("Cool. I like pastel pink")
 
-	#
-	Branch.new("Oh, me too. Those colors are so pleasing", true)
+	Branch.new("Oh, me too. Those colors are so pleasing", true).ab1("Yeah. Whenever I draw something I always use pastel colors") \
+	.ab0("Me toooooo!").ab0("You also do art?").ab1("No. That would be my friend. She is waaaay better in coloring than me") \
+	.ab0("Oh. I have been trying to get into art").ab0("It is kinda hard tho")
 	OT.gb("I like pastel colors").a("Oh, me too. Those colors are so pleasing")
+	OT.gb("Mhm, those colors are so pleasing").a("Yeah. Whenever I draw something I always use pastel colors")
 
 
 
@@ -135,6 +134,7 @@ func _ready():
 	.ab1("Well that happen to everyone of us").ab0("Yeah. I guess I just need to keep trying")
 	OT.gb("Um... no").a("Oh... So, she doesnt work with you?")
 	OT.gb("I mean, it is just I have these cool ideas I want to draw,").a("And when I tried to draw them, they doesnt look as good")
+	OT.gb("It is kinda hard tho").a("I mean everything seem hard at first")
 
 	#
 	Branch.new("You think?", true)
@@ -154,6 +154,8 @@ func _ready():
 
 	Branch.new(".....", false)
 	OT.gb("Wow dont give me such big responsibility like that").a(".....")
+	OT.gb("Maybe they are waiting for shooting stars like us").a(".....")
+	OT.gb("You sound like an engineer").a(".....")
 
 	OT.current_branch = GV.root_dialogue
 	OT.previous_branch = GV.root_dialogue

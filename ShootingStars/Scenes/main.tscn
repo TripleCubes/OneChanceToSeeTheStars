@@ -216,14 +216,14 @@ h = 27.0
 
 [node name="NextButton" parent="." instance=ExtResource("6_ttd4n")]
 visible = false
-position = Vector2(385, 370)
+position = Vector2(385, 380)
 text = "Next"
 w = 55.0
 h = 27.0
 
 [node name="TreeButton" parent="." instance=ExtResource("6_ttd4n")]
 visible = false
-position = Vector2(385, 410)
+position = Vector2(385, 420)
 text = "Tree"
 w = 55.0
 h = 27.0

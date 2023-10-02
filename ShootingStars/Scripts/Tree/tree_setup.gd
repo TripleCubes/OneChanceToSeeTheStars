@@ -23,18 +23,29 @@ func _ready():
 	.asf1("Can we wish for this shooting star to be a really beautiful one?")
 	OT.gb("You plan to make a wish?").a("I am thinking of one")
 
-	#
-	Branch.new("Nah that is a lame wish", true)
+	Branch.new("Nah that is a lame wish", true).ab1("How is money lame?").ab0("Money is not lame, the wish is") \
+	.ab1("Yeah... I guess so").ab0("I mean if I want money I would wish for having a job that I like that also make good money") \
+	.ab1("Do you have any job in mind?").ab0("I have been trying art lately") \
+	.ab1("Cool, I also have a friend who is doing art").ab0("Mhm").ab0("Im kinda suck at it tho") \
+	.ab1("Well yeah you gonna keep trying until you are good at it").ab0("I mean, it is just I have these cool ideas I want to draw,")
 	OT.gb("How about wish for money?").a("Nah that is a lame wish")
 
-	#
-	Branch.new("That is a nice one", true)
+	# ->
+	Branch.new("That is a nice one", true).ab0("Large meteor shower like this are rare tho, so I doub the wish would come true") \
+	.ab1("Who know?").ab1("And also we still have the small ones").ab0("Nah I will wish for a big one") \
+	.ab1("Do you like shooting stars?").ab0("I do").ab0("I like the night sky and the stars") \
+	.ab0("I dont know much about them but I like to watch them") \
+	.asf1("I wonder if on one of those star there are people also looking at our planet") \
+	.asf1("Do you know the light from the stars are from years away, so we are actually looking into the past?")
 	OT.gb("How about just wish for more shooting stars?").a("That is a nice one")
 
-	#
+	# ->
 	Branch.new("We will need to make the wish before the shooting stars start", true) \
-	.ab1("I mean who say we cant right?").ab0("Yeah").ab0("Guess that is my wish then")
-	OT.gb("Can we wish for this shooting star to be a really beautiful one?").a("We will need to make the wish before the shooting star start")
+	.ab1("I mean who say we cant right?").ab0("Yeah").ab0("Guess that is my wish then").ab0("...") \
+	.ab1("The sky is really nice today").ab1("Only here do we get green color like this").ab0("Yup") \
+	.ab0("I really like the afternoon orange too").ab0("Do you have a favorite color?") \
+	.asf1("Maybe green?").asf1("Maybe light blue").asf1("I like pastel colors")
+	OT.gb("Can we wish for this shooting star to be a really beautiful one?").a("We will need to make the wish before the shooting stars start")
 
 
 
@@ -88,6 +99,7 @@ func _ready():
 	.ab0("And when I tried to draw them, they doesnt look as good").ab0("That just make me lost motivation") \
 	.ab1("Well that happen to everyone of us").ab0("Yeah. I guess I just need to keep trying")
 	OT.gb("Um... no").a("Oh... So, she doesnt work with you?")
+	OT.gb("I mean, it is just I have these cool ideas I want to draw,").a("And when I tried to draw them, they doesnt look as good")
 
 	#
 	Branch.new("You think?", true)

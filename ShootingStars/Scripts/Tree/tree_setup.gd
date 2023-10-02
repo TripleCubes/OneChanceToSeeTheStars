@@ -99,9 +99,10 @@ func _ready():
 	.asf1("Cloud and sheep are both fluffy")
 	OT.gb("Sometime the color of the cloud is nice too").a("Yeah the blue clouds are really pretty")
 
-	Branch.new("I know right?", true).ab0("Im a hug sheep fan").ab0("I have lots of sheep plushies at home") \
+	Branch.new("I know right?", true).ab0("Im a huge sheep fan").ab0("I have lots of sheep plushies at home") \
 	.ab1("What do you like about them?").ab0("They just look really cute") \
-	.ab0("You know Bouncy Sheeps? The way they draw the sheeps are sooooo adorable").ab1("Do you go to the arcade alot?") \
+	.ab0("You know Bouncy Sheeps? The way they draw the sheeps are sooooo adorable").ab1("Bouncy Sheeps the arcade game?") \
+	.ab0("Yeah that one").ab1("Yeah the sheeps there are really cute").ab1("Do you go to the arcade alot?") \
 	.ab0("I usually grab plushies there").ab1("Do you?")
 	OT.gb("Sheeps are so cute").a("I know right?")
 
@@ -120,8 +121,11 @@ func _ready():
 	OT.gb("You like ponies?").a("I get the pony plush from an arcade")
 	OT.gb("Do you?").a("I do sometime").a("My friend like to go there, I just go with her")
 
-	#
-	Branch.new("What game are you usually play?", true)
+	Branch.new("What game are you usually play?", true).ab1("I dont play much, just there to grab plushies") \
+	.ab1("I usually buy pet food at the store nearby too").ab0("Oh which pet?").ab1("I have a female cat") \
+	.ab0("Awww").ab0("How is she like?").ab1("She is a playful one. She has destroyed my keyboard a couple of time") \
+	.ab0("Haha that is cats for you").asf1("Unlike those cat on the internet she doesnt become a destroyer at night tho") \
+	.asf1("She wake me up in the morning")
 	OT.gb("I do sometime").a("What game are you usually play?")
 
 	Branch.new("Is she a close friend?", true).ab1("She is").ab1("She also like plushs") \
@@ -137,31 +141,51 @@ func _ready():
 	.ab1("I mean everything seem hard at first").ab0("Yeah.") \
 	.ab0("It is just, I have these cool ideas I want to draw,") \
 	.ab0("And when I tried to draw them, they doesnt look as good").ab0("That just make me lost motivation") \
-	.ab1("Well that happen to everyone of us").ab0("Yeah. I guess I just need to keep trying")
+	.ab1("Well that happen to everyone of us").ab0("Yeah. I guess I just need to keep trying") \
+	.asf1("What do you usually draw?").asf1("Are you using pen and paper or a drawing tablet?")
 	OT.gb("Um... no").a("Oh... So, she doesnt work with you?")
 	OT.gb("I mean, it is just I have these cool ideas I want to draw,").a("And when I tried to draw them, they doesnt look as good")
 	OT.gb("It is kinda hard tho").a("I mean everything seem hard at first")
 
-	#
-	Branch.new("You think?", true)
+	# ->
+	Branch.new("You think?", true).ab0("What if she also like you?").ab1("")
 	OT.gb("It is one side from me, I think").a("You think?")
 
 
 
-	##
-	Branch.new("Who doesnt like cat?", true)
+	Branch.new("Who doesnt like cat?", true).ab1("Cat are so cute right?").ab1("I have a female cat at home")
 	OT.gb("You like cats?").a("Who doesnt like cat?")
+	
+	OT.gb("I have a female cat at home").a("Awww")
 
-	#
-	Branch.new("Mhm. Sheep are sooooo cute", true)
+	Branch.new("Mhm. Sheep are sooooo cute", true).ab0("Im a huuuuge sheep fan")
 	OT.gb("You like sheeps?").a("Mhm. Sheep are sooooo cute")
 
+	OT.gb("Im a huuuuge sheep fan").a("You know Bouncy Sheeps? The way they draw the sheeps are sooooo adorable")
 
 
+
+	#
 	Branch.new(".....", false)
 	OT.gb("Wow dont give me such big responsibility like that").a(".....")
 	OT.gb("Maybe they are waiting for shooting stars like us").a(".....")
 	OT.gb("You sound like an engineer").a(".....")
+
+
+
+
+
+	# ->
+	Branch.new("Does your cat sleep with you on the bed?", true).ab1("Sometimes").ab1("Some night she just going around") \
+	.ab1("Maybe she is ghost busting").ab0("Do you think ghost is real?").ab1("Idk, I hope not") \
+	.ab0("I like to think ghosts are cute like in those arcade games") \
+	.asf1("Why cant everything be cute").asf1("Can something be both scary and cute?")
+	OT.gb("Unlike those cat on the internet she doesnt become a destroyer at night tho").a("Does your cat sleep with you on the bed?")
+
+	# ->
+	Branch.new("That is better than the annoying alarm", false).ab0("What do you usually have for breakfast?") \
+	.asf1("I just have some coffee").asf1("Anything I have in the fridge")
+	OT.gb("She wake me up in the morning").a("That is better than the annoying alarm")
 
 	OT.current_branch = GV.root_dialogue
 	OT.previous_branch = GV.root_dialogue

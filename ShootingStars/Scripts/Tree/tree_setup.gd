@@ -147,9 +147,18 @@ func _ready():
 	OT.gb("I mean, it is just I have these cool ideas I want to draw,").a("And when I tried to draw them, they doesnt look as good")
 	OT.gb("It is kinda hard tho").a("I mean everything seem hard at first")
 
-	# ->
-	Branch.new("You think?", true).ab0("What if she also like you?").ab1("")
+	Branch.new("You think?", true).ab0("What if she also like you?").ab1("Nah, it seem unlikely") \
+	.ab0("And then she think the same thing as you,").ab0("And then we lost a good couple candidate") \
+	.asf1("Idk, how am I supposed to know what she feel about me?").asf1("What if she is not?")
 	OT.gb("It is one side from me, I think").a("You think?")
+
+	Branch.new("I mean from what you tell about her, she seem to", true).ab0("Cant you just ask her out? You guys are close friends right?") \
+	.ab1("Have you ever ask someone out? It is really hard").ab0("...").ab0("I guess...")
+	OT.gb("Idk, how am I supposed to know what she feel about me?").a("I mean from what you tell about her, she seem to")
+
+	Branch.new("What if she is?", true).ab0("If you are just going to think negatively like that where would you go?") \
+	.ab0("....")
+	OT.gb("What if she is not?").a("What if she is?")
 
 
 
@@ -165,11 +174,17 @@ func _ready():
 
 
 
-	#
-	Branch.new(".....", false)
+	# ->
+	Branch.new(".....", false).ab1("Oh, a bird").ab0("Oh").ab0("A cute little fella") \
+	.ab0("Make me remember, I got attacked by birds once. They are crows tho") \
+	.ab1("That must feel horrible").ab0("Nah. I just run into a nearby building") \
+	.ab0("Birds can be both scary and cute").ab1("You think crows are cute?").ab0("They are sometime") \
+	.ab0("I like when they are just sitting around")
 	OT.gb("Wow dont give me such big responsibility like that").a(".....")
 	OT.gb("Maybe they are waiting for shooting stars like us").a(".....")
 	OT.gb("You sound like an engineer").a(".....")
+	OT.gb("I guess...").a(".....")
+	OT.gb("....").a(".....")
 
 
 
@@ -181,6 +196,14 @@ func _ready():
 	.ab0("I like to think ghosts are cute like in those arcade games") \
 	.asf1("Why cant everything be cute").asf1("Can something be both scary and cute?")
 	OT.gb("Unlike those cat on the internet she doesnt become a destroyer at night tho").a("Does your cat sleep with you on the bed?")
+
+	#
+	Branch.new("Birds can", true).ab0("I got attacked by crows before").ab0("But they do be cute sometime")
+	OT.gb("Can something be both scary and cute?").a("Birds can")
+
+	OT.gb("But they do be cute sometime").a("You think crows are cute?")
+
+
 
 	# ->
 	Branch.new("That is better than the annoying alarm", false).ab0("What do you usually have for breakfast?") \

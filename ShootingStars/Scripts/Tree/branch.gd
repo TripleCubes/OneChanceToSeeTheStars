@@ -41,10 +41,11 @@ func asf1(in_text: String) -> Branch:
 	return self
 
 # Search for the branch in all branches and add it
-func a(in_text: String) -> void:
+func a(in_text: String) -> Branch:
 	var branch: = OptionTree.gb(in_text)
 	branch.connected_from.append(self)
 	connected_to.append(branch)
+	return self
 
 # Add callable
 func ac(in_callable: Callable) -> Branch:

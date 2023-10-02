@@ -15,7 +15,7 @@ func _ready():
 	.ab1("You might only see these kind of stuff once in life").ab0("Mhm").asf1("You plan to make a wish?") \
 	.asf1("Have you seen meteor shower before?")
 
-	Branch.new("I am thinking of one", true).ab0("Do you?").ab1("Maybe I will just wish for a good month") \
+	Branch.new("I am thinking of one", true).ab1("Maybe I will just wish for a good month") \
 	.ab1("Thinking of a wish is hard").ab0("Mhm").ab0("Last time I see a shooting star I wished for luck") \
 	.ab0("The next day my coworker give me a discount coupon").ab0("So I guess the wish came true") \
 	.ab1("Then I hope my wish will also come true").ab0("I want to wish for something more specific this time tho") \
@@ -86,9 +86,12 @@ func _ready():
 	.asf1("They feel unreal right?").asf1("Sometime the color of the cloud is nice too")
 	OT.gb("Have you seen meteor shower before?").a("Only small ones")
 
-	#
-	Branch.new("They do", true)
+	Branch.new("They do", true).ab0("So I am looking forward to this meteor shower").ab0("...") \
+	.ab1("The sky is really nice today").ab1("Only here do we get green color like this").ab0("Yup") \
+	.ab0("I really like the afternoon's orange too")
 	OT.gb("They feel unreal right?").a("They do")
+
+	OT.gb("I really like the afternoon's orange too").a("Do you have a favorite color?")
 
 	Branch.new("Yeah the blue clouds are really pretty", true) \
 	.ab0("I have seen some straight cloud shapes").ab0("I once seen a sheep shaped cloud") \
@@ -96,8 +99,10 @@ func _ready():
 	.asf1("Cloud and sheep are both fluffy")
 	OT.gb("Sometime the color of the cloud is nice too").a("Yeah the blue clouds are really pretty")
 
-	#
-	Branch.new("I know right?", true)
+	Branch.new("I know right?", true).ab0("Im a hug sheep fan").ab0("I have lots of sheep plushies at home") \
+	.ab1("What do you like about them?").ab0("They just look really cute") \
+	.ab0("You know Bouncy Sheeps? The way they draw the sheeps are sooooo adorable").ab1("Do you go to the arcade alot?") \
+	.ab0("I usually grab plushies there").ab1("Do you?")
 	OT.gb("Sheeps are so cute").a("I know right?")
 
 	Branch.new("Mhm, fluffy stuff are so cute", true).ab0("I have a lot of plushies") \
@@ -113,6 +118,7 @@ func _ready():
 	.ab1("Maybe I can help you get one sometime").ab0("Mhm").ab0("Do you go to arcade much?") \
 	.asf1("I do sometime").asf1("My friend like to go there, I just go with her")
 	OT.gb("You like ponies?").a("I get the pony plush from an arcade")
+	OT.gb("Do you?").a("I do sometime").a("My friend like to go there, I just go with her")
 
 	#
 	Branch.new("What game are you usually play?", true)
@@ -121,7 +127,7 @@ func _ready():
 	Branch.new("Is she a close friend?", true).ab1("She is").ab1("She also like plushs") \
 	.ab1("Everytime she see one she like she will wait for me at work to pull me to the arcade") \
 	.ab0("What work do you do?").ab1("Im a game dev").ab0("And she is").ab1("An artist") \
-	.ab0("Then you two are fit for each other huh").ab1("I guess so").ab0("Are you two, in romantic relationship?") \
+	.ab0("Then you two are fit for each other huh").ab1("I guess so").ab0("Are you two in a romantic relationship?") \
 	.asf1("Um... no").asf1("It is one side from me, I think")
 	OT.gb("My friend like to go there, I just go with her").a("Is she a close friend?")
 

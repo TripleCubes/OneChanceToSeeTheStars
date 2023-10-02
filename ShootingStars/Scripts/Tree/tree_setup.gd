@@ -30,7 +30,6 @@ func _ready():
 	.ab1("Well yeah you gonna keep trying until you are good at it").ab0("I mean, it is just I have these cool ideas I want to draw,")
 	OT.gb("How about wish for money?").a("Nah that is a lame wish")
 
-	# ->
 	Branch.new("That is a nice one", true).ab0("Large meteor shower like this are rare tho, so I doub the wish would come true") \
 	.ab1("Who know?").ab1("And also we still have the small ones").ab0("Nah I will wish for a big one") \
 	.ab1("Do you like shooting stars?").ab0("I do").ab0("I like the night sky and the stars") \
@@ -40,12 +39,47 @@ func _ready():
 	OT.gb("How about just wish for more shooting stars?").a("That is a nice one")
 
 	# ->
+	Branch.new("Well those are stars, they are like our sun, there wont be life on them", true) \
+	.ab0("I do wonder if there are alien life tho") \
+	.ab1("I mean the universe is so big, there must be another planet with life, right?") \
+	.ab0("Yeah").ab0("Maybe they are waiting for shooting stars like us")
+	OT.gb("I wonder if on one of those star there are people also looking at our planet").a("Well those are stars, they are like our sun, there wont be life on them")
+
+	# ->
+	Branch.new("Yeah I heard those so many times", true).ab1("I mean that means if we go far enough we can look into our past") \
+	.ab0("We will need to go faster than light for that tho,").ab0("And even if we managed to do that everything will be tiny") \
+	.ab1("You think we managed to go faster than light but not getting a good picture from the telescope?") \
+	.ab0("I mean you dont know what is hard and what is not") \
+	.ab1("You sound like an engineer")
+	OT.gb("Do you know the light from the stars are from years away, so we are actually looking into the past?") \
+	.a("Yeah I heard those so many times")
+
 	Branch.new("We will need to make the wish before the shooting stars start", true) \
 	.ab1("I mean who say we cant right?").ab0("Yeah").ab0("Guess that is my wish then").ab0("...") \
 	.ab1("The sky is really nice today").ab1("Only here do we get green color like this").ab0("Yup") \
 	.ab0("I really like the afternoon orange too").ab0("Do you have a favorite color?") \
 	.asf1("Maybe green?").asf1("Maybe light blue").asf1("I like pastel colors")
 	OT.gb("Can we wish for this shooting star to be a really beautiful one?").a("We will need to make the wish before the shooting stars start")
+
+	Branch.new("Come on you just pick today's color", true).ab1("I mean today's green is nice") \
+	.ab0("Yeah but,").ab0("Let say you can choose a color for all book covers in the world,").ab0("What would you choose?") \
+	.asf1("Um... I guess light green").asf1("Wow dont give me such big responsibility like that")
+	OT.gb("Maybe green?").a("Come on you just pick today's color")
+
+	Branch.new("... Alright...", true).ab1("Do you like books?").ab0("No. Too many letter make me dizzy") \
+	.ab1("Wow how?").ab0("I dont like books").ab1("Then what do you like?").ab0("Um...").ab0("I collect a lot of plushies") \
+	.ab1("Oh which one?")
+	OT.gb("Um... I guess light green").a("... Alright...")
+
+
+
+	#
+	Branch.new("Cool. I like pastel pink", true)
+	OT.gb("Maybe light blue").a("Cool. I like pastel pink")
+
+	#
+	Branch.new("Oh, me too. Those colors are so pleasing", true)
+	OT.gb("I like pastel colors").a("Oh, me too. Those colors are so pleasing")
 
 
 
@@ -72,6 +106,7 @@ func _ready():
 	.ab1("What type of plush do you have?").ab0("I have pony plush, cat plush, a lot of sheep plushs") \
 	.asf1("You like ponies?").asf1("You like cats?").asf1("You like sheeps?")
 	OT.gb("Cloud and sheep are both fluffy").a("Mhm, fluffy stuff are so cute")
+	OT.gb("Oh which one?").a("I have pony plush, cat plush, a lot of sheep plushs")
 
 	Branch.new("I get the pony plush from an arcade", true).ab0("The plush is soooo cute I need to get it") \
 	.ab0("Took me more than 50 tries for it").ab1("Im pretty good at those games") \
@@ -114,6 +149,11 @@ func _ready():
 	#
 	Branch.new("Mhm. Sheep are sooooo cute", true)
 	OT.gb("You like sheeps?").a("Mhm. Sheep are sooooo cute")
+
+
+
+	Branch.new(".....", false)
+	OT.gb("Wow dont give me such big responsibility like that").a(".....")
 
 	OT.current_branch = GV.root_dialogue
 	OT.previous_branch = GV.root_dialogue

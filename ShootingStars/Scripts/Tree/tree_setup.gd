@@ -54,9 +54,22 @@ func _ready():
 	Branch.new("What game are you usually play?", true)
 	OT.gb("I do sometime").a("What game are you usually play?")
 
-	#
-	Branch.new("Is she a close friend?", true).ab1("She is")
+	Branch.new("Is she a close friend?", true).ab1("She is").ab1("She also like plushs") \
+	.ab1("Everytime she see one she like she will wait for me at work to pull me to the arcade") \
+	.ab0("What work do you do?").ab1("Im a game dev").ab0("And she is").ab1("An artist") \
+	.ab0("Then you two are fit for each other huh").ab1("I guess so").ab0("Are you two, in romantic relationship?") \
+	.asf1("Um... no").asf1("It is one side from me, I think")
 	OT.gb("My friend like to go there, I just go with her").a("Is she a close friend?")
+
+	#
+	Branch.new("Oh... So, she doesnt work with you?", true)
+	OT.gb("Um... no").a("Oh... So, she doesnt work with you?")
+
+	#
+	Branch.new("You think?", true)
+	OT.gb("It is one side from me, I think").a("You think?")
+
+
 
 	##
 	Branch.new("Who doesnt like cat?", true)

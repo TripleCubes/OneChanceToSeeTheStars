@@ -6,7 +6,7 @@ func _ready():
 	GV.root_dialogue = Branch.new("Hi", false)
 	GV.root_dialogue.ab0("...").ab0("Hi").ab1("You waiting for the meteor shower?").ab0("You too?") \
 	.ab1("Guess we both come too early").ab1("...").ab1("There are not much place to go around here") \
-	.ab0("There are that store").ab1("I have been in there for 30 minutes").ab1("Didnt buy anything tho") \
+	.ab0("There is that store").ab1("I have been in there for 30 minutes").ab1("Didnt buy anything tho") \
 	.ab0("They have good cake").ab1("Oh").ab1("I will try some later then").ab1("...").ab0("Nice weather today") \
 	.ab1("It is").ab1("Gonna be nice like this for the whole week").ab0("Mhm") \
 	.ab0("It is nice to just chill here in days like this").ab1("Yeah") \

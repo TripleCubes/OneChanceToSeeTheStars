@@ -23,7 +23,7 @@ func _ready():
 	.asf1("Can we wish for this shooting star to be a really beautiful one?")
 	OT.gb("You plan to make a wish?").a("I am thinking of one")
 
-	Branch.new("Nah that is a lame wish", true).ab1("How is money lame?").ab0("Money is not lame, the wish is") \
+	Branch.new("Nah that is a lame wish", true).ac(func(): GF.st(0)).ab1("How is money lame?").ac(func(): GF.st(1)).ab0("Money is not lame, the wish is") \
 	.ab1("Yeah... I guess so").ab0("I mean if I want money I would wish for having a job that I like that also make good money") \
 	.ab1("Do you have any job in mind?").ab0("I have been trying art lately") \
 	.ab1("Cool, I also have a friend who is doing art").ab0("Mhm").ab0("Im kinda suck at it tho") \
@@ -32,8 +32,8 @@ func _ready():
 
 	Branch.new("That is a nice one", true).ab0("Large meteor shower like this are rare tho, so I doub the wish would come true") \
 	.ab1("Who know?").ab1("And also we still have the small ones").ab0("Nah I will wish for a big one") \
-	.ab1("Do you like shooting stars?").ab0("I do").ab0("I like the night sky and the stars") \
-	.ab0("I dont know much about them but I like to watch them") \
+	.ab1("Do you like shooting stars?").ab0("I do").ab0("I like the night sky and the stars").ac(func(): GF.st(0)) \
+	.ab0("I dont know much about them but I like to watch them").ac(func(): GF.st(1)) \
 	.asf1("I wonder if on one of those star there are people also looking at our planet") \
 	.asf1("Do you know the light from the stars are from years away, so we are actually looking into the past?")
 	OT.gb("How about just wish for more shooting stars?").a("That is a nice one")
@@ -54,8 +54,8 @@ func _ready():
 
 	Branch.new("We will need to make the wish before the shooting stars start", true) \
 	.ab1("I mean who say we cant right?").ab0("Yeah").ab0("Guess that is my wish then").ab0("...") \
-	.ab1("The sky is really nice today").ab1("Only here do we get green color like this").ab0("Yup") \
-	.ab0("I really like the afternoon orange too").ab0("Do you have a favorite color?") \
+	.ab1("The sky is really nice today").ab1("Only here do we get green color like this").ab0("Yup").ac(func(): GF.st(0)) \
+	.ab0("I really like the afternoon orange too").ac(func(): GF.st(1)).ab0("Do you have a favorite color?") \
 	.asf1("Maybe green?").asf1("Maybe light blue").asf1("I like pastel colors")
 	OT.gb("Can we wish for this shooting star to be a really beautiful one?").a("We will need to make the wish before the shooting stars start")
 
@@ -94,8 +94,8 @@ func _ready():
 	OT.gb("I really like the afternoon's orange too").a("Do you have a favorite color?")
 
 	Branch.new("Yeah the blue clouds are really pretty", true) \
-	.ab0("I have seen some straight cloud shapes").ab0("I once seen a sheep shaped cloud") \
-	.ab0("Like, it look like a sheep, with horns and stuff").asf1("Sheeps are so cute") \
+	.ab0("I have seen some straight cloud shapes").ab0("I once seen a sheep shaped cloud").ac(func(): GF.st(0)) \
+	.ab0("Like, it look like a sheep, with horns and stuff").ac(func(): GF.st(1)).asf1("Sheeps are so cute") \
 	.asf1("Cloud and sheep are both fluffy")
 	OT.gb("Sometime the color of the cloud is nice too").a("Yeah the blue clouds are really pretty")
 
@@ -123,7 +123,7 @@ func _ready():
 
 	Branch.new("What game are you usually play?", true).ab1("I dont play much, just there to grab plushies") \
 	.ab1("I usually buy pet food at the store nearby too").ab0("Oh which pet?").ab1("I have a female cat") \
-	.ab0("Awww").ab0("How is she like?").ab1("She is a playful one. She has destroyed my keyboard a couple of time") \
+	.ab0("Awww").ab0("How is she like?").ac(func(): GF.st(1)).ab1("She is a playful one. She has destroyed my keyboard a couple of time").ac(func(): GF.st(2)) \
 	.ab0("Haha that is cats for you").asf1("Unlike those cat on the internet she doesnt become a destroyer at night tho") \
 	.asf1("She wake me up in the morning")
 	OT.gb("I do sometime").a("What game are you usually play?")
@@ -140,7 +140,7 @@ func _ready():
 	.ab1("I mean everything seem hard at first").ab0("Yeah.") \
 	.ab0("It is just, I have these cool ideas I want to draw,") \
 	.ab0("And when I tried to draw them, they doesnt look as good").ab0("That just make me lost motivation") \
-	.ab1("Well that happen to everyone of us").ab0("Yeah. I guess I just need to keep trying") \
+	.ab1("Well that happen to everyone of us").ac(func(): GF.st(1)).ab0("Yeah. I guess I just need to keep trying").ac(func(): GF.st(2)) \
 	.asf1("What do you usually draw?").asf1("Are you using pen and paper or a drawing tablet?")
 	OT.gb("Um... no").a("Oh... So, she doesnt work with you?")
 	OT.gb("I mean, it is just I have these cool ideas I want to draw,").a("And when I tried to draw them, they doesnt look as good")
@@ -184,7 +184,7 @@ func _ready():
 
 
 
-	Branch.new(".....", false).ab1("Oh, a bird").ab0("Oh").ab0("A cute little fella") \
+	Branch.new(".....", false).ac(func(): GF.st(1)).ab1("Oh, a bird").ac(func(): GF.st(2)).ab0("Oh").ab0("A cute little fella") \
 	.ab0("Make me remember, I got attacked by birds once. They are crows tho") \
 	.ab1("That must feel horrible").ab0("Nah. I just run into a nearby building") \
 	.ab0("Birds can be both scary and cute").ab1("You think crows are cute?").ab0("They are sometime") \
@@ -236,7 +236,7 @@ func _ready():
 
 	Branch.new("It is almost the time", false).ab0("Mhm").ab1("Prepare your wish").ab0("I am") \
 	.ab1("Wow we have talked for a few hours already").ab0("It doesnt feel that long").ab1("Yeah") \
-	.ab1("Its been fun talking with you").ab0("I am too")
+	.ab1("Its been fun talking with you").ab0("I am too").ac(func(): GF.wait(3, func(): GV.shooting_stars.started = true))
 
 	OT.gb("Anything can be cute if you look hard enough").a("It is almost the time")
 	OT.gb("Thank you").a("It is almost the time")

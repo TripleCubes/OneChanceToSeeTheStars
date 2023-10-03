@@ -18,7 +18,7 @@ var started: = false:
 		GF.wait(10, func(): _shooting_star_started = val)
 
 		if started:
-			GF.tween(GV.camera, "position", Vector2(0, -500), 1, true)
+			GF.tween(GV.camera, "position", Vector2(0, -500), 2, true)
 
 			if GV.first_shooting_stars:
 				GF.wait(8, func(): GF.tween(GV.restart_button, "modulate", Color(1, 1, 1, 1), 1, true))

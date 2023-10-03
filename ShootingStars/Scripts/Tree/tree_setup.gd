@@ -135,7 +135,6 @@ func _ready():
 	.asf1("Um... no").asf1("It is one side from me, I think")
 	OT.gb("My friend like to go there, I just go with her").a("Is she a close friend?")
 
-	# ->
 	Branch.new("Oh... So, she doesnt work with you?", true).ab1("No. She is indie. She do live stream and stuff") \
 	.ab0("I would like to get into art too").ab1("Why dont you?").ab0("It seem hard to me") \
 	.ab1("I mean everything seem hard at first").ab0("Yeah.") \
@@ -146,6 +145,17 @@ func _ready():
 	OT.gb("Um... no").a("Oh... So, she doesnt work with you?")
 	OT.gb("I mean, it is just I have these cool ideas I want to draw,").a("And when I tried to draw them, they doesnt look as good")
 	OT.gb("It is kinda hard tho").a("I mean everything seem hard at first")
+
+	Branch.new("I use a tablet", true).ab0("But for practice I found pen and paper better")
+	OT.gb("Are you using pen and paper or a drawing tablet?").a("I use a tablet")
+
+	Branch.new("Just some character drawing, anime style and stuff", true) \
+	.ab1("Cool. Good luck for your path to become an artist").ab0("Thank you")
+	OT.gb("What do you usually draw?").a("Just some character drawing, anime style and stuff")
+
+	OT.gb("But for practice I found pen and paper better").a("What do you usually draw?")
+
+
 
 	Branch.new("You think?", true).ab0("What if she also like you?").ab1("Nah, it seem unlikely") \
 	.ab0("And then she think the same thing as you,").ab0("And then we lost a good couple candidate") \
@@ -174,12 +184,11 @@ func _ready():
 
 
 
-	# ->
 	Branch.new(".....", false).ab1("Oh, a bird").ab0("Oh").ab0("A cute little fella") \
 	.ab0("Make me remember, I got attacked by birds once. They are crows tho") \
 	.ab1("That must feel horrible").ab0("Nah. I just run into a nearby building") \
 	.ab0("Birds can be both scary and cute").ab1("You think crows are cute?").ab0("They are sometime") \
-	.ab0("I like when they are just sitting around")
+	.ab0("I like when they are just sitting around").ab0("Anything can be cute if you look hard enough")
 	OT.gb("Wow dont give me such big responsibility like that").a(".....")
 	OT.gb("Maybe they are waiting for shooting stars like us").a(".....")
 	OT.gb("You sound like an engineer").a(".....")
@@ -197,18 +206,42 @@ func _ready():
 	.asf1("Why cant everything be cute").asf1("Can something be both scary and cute?")
 	OT.gb("Unlike those cat on the internet she doesnt become a destroyer at night tho").a("Does your cat sleep with you on the bed?")
 
-	#
 	Branch.new("Birds can", true).ab0("I got attacked by crows before").ab0("But they do be cute sometime")
 	OT.gb("Can something be both scary and cute?").a("Birds can")
 
 	OT.gb("But they do be cute sometime").a("You think crows are cute?")
 
+	Branch.new("Well cute or not depend on each person", true).a("Anything can be cute if you look hard enough")
+	OT.gb("Why cant everything be cute").a("Well cute or not depend on each person")
 
 
-	# ->
+
 	Branch.new("That is better than the annoying alarm", false).ab0("What do you usually have for breakfast?") \
 	.asf1("I just have some coffee").asf1("Anything I have in the fridge")
 	OT.gb("She wake me up in the morning").a("That is better than the annoying alarm")
+
+	Branch.new("How can you survive with just a coffee?", true).ab1("I just, can. It feel normal to me") \
+	.ab0("Dont you feel hungry?").ab1("Sometime, but lunch will be just a hour away anyway") \
+	.ab0("Im gonna pass out if I dont have breakfast").ab1("Well each person is different") \
+	.ab0("Guess that is true")
+	OT.gb("I just have some coffee").a("How can you survive with just a coffee?")
+
+	Branch.new("What is usually in the fridge?", true).ab1("Leftover frow last night") \
+	.ab1("And if there are none I will just have a coffee").ab0("Jeez how do you survive that?") \
+	.ab1("Im still here").ab0("Take better care of yourself bro").ab1("I do plan to").ab0("For how long?") \
+	.ab1("A few years").ab0("Cant blame you. I do be like that sometime").ab1("We all do right")
+	OT.gb("Anything I have in the fridge").a("What is usually in the fridge?")
+
+
+
+	Branch.new("It is almost the time", false).ab0("Mhm").ab1("Prepare your wish").ab0("I am") \
+	.ab1("Wow we have talked for a few hours already").ab0("It doesnt feel that long").ab1("Yeah") \
+	.ab1("Its been fun talking with you").ab0("I am too")
+
+	OT.gb("Anything can be cute if you look hard enough").a("It is almost the time")
+	OT.gb("Thank you").a("It is almost the time")
+	OT.gb("Guess that is true").a("It is almost the time")
+	OT.gb("We all do right").a("It is almost the time")
 
 	OT.current_branch = GV.root_dialogue
 	OT.previous_branch = GV.root_dialogue
